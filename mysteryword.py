@@ -1,3 +1,15 @@
+def main():
+    file = open(words.txt)
+    word_list = file.read().split()
+    print("number of words", len(word_list))
+
+if __name__ == "main":
+    main()
+
+
+
+
+
 # ask user what level they would like to play
     #level conditions for random word selection?
 # random word function
