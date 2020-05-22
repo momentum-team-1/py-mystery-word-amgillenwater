@@ -3,17 +3,21 @@ import random
 def main(file):
     opened_file = open(file)
     word_list = opened_file.read().split()
-    print(word_list)
     get_random_word(word_list)
+    
 
-# random word function
+# random word function, exclude words that start with uppercase
 def get_random_word(list):
     """ this function returns a random word from the word list given """
     random_word = random.choice(list)
-    return random_word
+    random_lower_word = random_word.lower()
+    print (random_lower_word)
 
-if __name__ == "__main__":
-    main(file)
+
+main('words.txt')
+
+# if __name__ == "__main__":
+#     main()
 
 
 # ask user what level they would like to play
