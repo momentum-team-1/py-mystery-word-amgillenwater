@@ -12,6 +12,7 @@ def get_random_word(list):
     random_word = random.choice(list)
     random_lower_word = random_word.lower()
     print (random_lower_word)
+    return random_lower_word
 
 
 main('words.txt')
@@ -30,8 +31,11 @@ main('words.txt')
     #input function
 #user inputs a letter
     #we take the input and compare it to the random word's letters
+    #add the input to the string of guessed letters
 #game shows empty spaces of word and if the letter is correct, it fills the letter in the correct spot
     #vanna white function
+        #needs to have the random word and the string of guessed letters
+        #returns a string of letters that the user has guessed and underscores to represent letters in the mystery word that they have not guessed yet.
 #game prompts user to continue guessing until the guess counter = 0
 # if user guesses wrong, they lose a guess
     #if input != letter in the word, counter -= 1
