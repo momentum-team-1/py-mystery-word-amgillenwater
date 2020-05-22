@@ -1,13 +1,19 @@
-def main():
-    file = open(words.txt)
-    word_list = file.read().split()
-    print("number of words", len(word_list))
+import random
 
-if __name__ == "main":
-    main()
+def main(file):
+    opened_file = open(file)
+    word_list = opened_file.read().split()
+    print(word_list)
+    get_random_word(word_list)
 
+# random word function
+def get_random_word(list):
+    """ this function returns a random word from the word list given """
+    random_word = random.choice(list)
+    return random_word
 
-
+if __name__ == "__main__":
+    main(file)
 
 
 # ask user what level they would like to play
