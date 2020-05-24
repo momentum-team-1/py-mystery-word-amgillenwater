@@ -25,7 +25,7 @@ def what_level(word_list):
             if len(word) >= 6 and len(word) <= 8:
                 new_word_list.append(word)
               
-    if desired_level.lower() == 'hard':
+    if desired_level.lower() == 'difficult':
         for word in word_list:
             if len(word) <= 8:
                 new_word_list.append(word)
