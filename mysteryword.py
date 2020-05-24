@@ -1,6 +1,5 @@
 import random
 
-# random word function, exclude words that start with uppercase
 def get_random_word(list):
     """ this function returns a random word from the word list given, ran after the level choice function"""
     random_word = random.choice(list)
@@ -28,11 +27,13 @@ def level_choice(word_list):
                 new_word_list.append(word)
     return new_word_list
 
-def user_input():
-    """This function asks for the user's guess and then makes it a lowercase letter for more easy evaluation"""
+def user_guess():
+    """This function asks for the user's guess and then makes it a lowercase letter for more easy evaluation--I'm assuming "good" input by the user for now"""
+    list_of_guesses = []
     user_input = input("Please guess a letter:  ")
     lower_letter = user_input.lower()
-    print (lower_letter)
+    list_of_guesses.append(lower_letter)
+    return list_of_guesses
 
 
 def main(file):
@@ -41,7 +42,7 @@ def main(file):
     word_list = opened_file.read().split()
     level_selection = level_choice(word_list)
     get_random_word(level_selection)
-    user_input()
+    user_guess()
 
 main('words.txt')
 
