@@ -8,21 +8,28 @@ def get_random_word(list):
     print (random_lower_word)
     return random_lower_word
 
-def what_level():
+def what_level(word_list):
     """This function will sort the word list by length for each level chosen--ran before the user input function for their guesses. 
     Maybe this function needs to happen before the random function, too? narrow down the list to the lengths selected, then randomly pick a word?
     """
     desired_level = input("Please type one of the following to indicate the level of difficulty you'd like to play: Easy, Normal, Difficult  ")
     if desired_level.lower() == 'easy':
         for word in word_list:
+            if len(word) >= 4 and len(word)<= 6:
+                print(word)
             #word length between 4 and 6
             #use one of those words
     if desired_level.lower() == 'normal':
         for word in word_list:
+            if len(word) >= 6 and len(word) <= 8:
+                print(word)
+
             #words length between 6 and 8
             #use one of those words
     if desired_level.lower() == 'hard':
         for word in word_list:
+            if len(word) <= 8:
+                print(word)
 
 #userinput function
 def user_input():
@@ -34,6 +41,7 @@ def user_input():
 def main(file):
     opened_file = open(file)
     word_list = opened_file.read().split()
+    what_level(word_list)
     get_random_word(word_list)
     user_input()
 
