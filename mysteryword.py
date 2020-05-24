@@ -16,21 +16,16 @@ def what_level(word_list):
     if desired_level.lower() == 'easy':
         for word in word_list:
             if len(word) >= 4 and len(word)<= 6:
-                print(word)
-            #word length between 4 and 6
-            #use one of those words
+                return word
+                #need to figure out how to send this list to the random function, return it?
     if desired_level.lower() == 'normal':
         for word in word_list:
             if len(word) >= 6 and len(word) <= 8:
-                print(word)
-
-            #words length between 6 and 8
-            #use one of those words
+                return word
     if desired_level.lower() == 'hard':
         for word in word_list:
             if len(word) <= 8:
-                print(word)
-
+                return word
 #userinput function
 def user_input():
     user_input = input("Please guess a letter:  ")
