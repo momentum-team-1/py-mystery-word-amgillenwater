@@ -2,15 +2,14 @@ import random
 
 # random word function, exclude words that start with uppercase
 def get_random_word(list):
-    """ this function returns a random word from the word list given """
+    """ this function returns a random word from the word list given, ran after the level choice function"""
     random_word = random.choice(list)
     random_lower_word = random_word.lower()
     print (random_lower_word)
     return random_lower_word
 
-def what_level(word_list):
-    """This function will sort the word list by length for each level chosen--ran before the user input function for their guesses. 
-    Maybe this function needs to happen before the random function, too? narrow down the list to the lengths selected, then randomly pick a word?
+def level_choice(word_list):
+    """This function will take user's selection of difficulty and make a new word list that has only words belonging to that difficulty level--this return is then run through the random word choice function
     """
     desired_level = input("Please type one of the following to indicate the level of difficulty you'd like to play: Easy, Normal, Difficult  ")
     new_word_list = []
@@ -18,8 +17,6 @@ def what_level(word_list):
         for word in word_list:
             if len(word) >= 4 and len(word) <= 6:
                 new_word_list.append(word)
-                
-                #need to figure out how to send this list to the random function, return it?
     if desired_level.lower() == 'normal':
         for word in word_list:
             if len(word) >= 6 and len(word) <= 8:
@@ -29,19 +26,20 @@ def what_level(word_list):
         for word in word_list:
             if len(word) <= 8:
                 new_word_list.append(word)
-
     return new_word_list
-#userinput function
+
 def user_input():
+    """This function asks for the user's guess and then makes it a lowercase letter for more easy evaluation"""
     user_input = input("Please guess a letter:  ")
     lower_letter = user_input.lower()
     print (lower_letter)
 
 
 def main(file):
+    """This function is where all the other functions will be executed"""
     opened_file = open(file)
     word_list = opened_file.read().split()
-    level_selection = what_level(word_list)
+    level_selection = level_choice(word_list)
     get_random_word(level_selection)
     user_input()
 
