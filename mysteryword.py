@@ -4,7 +4,6 @@ def get_random_word(list):
     """ this function returns a random word from the word list given, ran after the level choice function"""
     random_word = random.choice(list)
     random_lower_word = str(random_word.lower())
-    print (random_lower_word)
     return random_lower_word
 
 def level_choice(word_list):
@@ -31,15 +30,12 @@ def user_guess():
     """This function asks for the user's guess and then makes it a lowercase letter for more easy evaluation--I'm assuming "good" input by the user for now. After lowercasing, it is added to a list of guesses that is returned"""
     user_input = input("Please guess a letter:  ")
     lower_letter = user_input.lower()
-    return lower_letter
-    
+    return lower_letter  
 
 def list_of_guesses(letter):
     list_of_guesses = []
     list_of_guesses.append(letter)
     return list_of_guesses
-    
-#need to find a way to "keep" the list of wrong answers--maybe create a different list of wrong answers...push the letters that are correct to the display/screen function and the ones that are not correct to the wrong guess function, which is tied to a counter that stops at 8 
 
 def display_letter(letter, guesses):
     """
@@ -57,7 +53,6 @@ def print_word(word, guesses):
                       for letter in word]
     print(" ".join(output_letters))
     
-
 def main(file):
     """This function is where all the other functions will be executed"""
     opened_file = open(file)
@@ -70,8 +65,6 @@ def main(file):
     print_word(mystery_word,list)
 
     # print_word(mystery_word, list_of_guesses)
-    
-    
 
 main('words.txt')
 
