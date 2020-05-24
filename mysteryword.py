@@ -3,7 +3,7 @@ import random
 def get_random_word(list):
     """ this function returns a random word from the word list given, ran after the level choice function"""
     random_word = random.choice(list)
-    random_lower_word = random_word.lower()
+    random_lower_word = str(random_word.lower())
     print (random_lower_word)
     return random_lower_word
 
@@ -29,13 +29,15 @@ def level_choice(word_list):
 
 def user_guess():
     """This function asks for the user's guess and then makes it a lowercase letter for more easy evaluation--I'm assuming "good" input by the user for now. After lowercasing, it is added to a list of guesses that is returned"""
-    # list_of_guesses = []
     user_input = input("Please guess a letter:  ")
     lower_letter = user_input.lower()
-    # list_of_guesses.append(lower_letter)
     return lower_letter
+    
 
-def list_of_guesses
+def list_of_guesses(letter):
+    list_of_guesses = []
+    list_of_guesses.append(letter)
+    return list_of_guesses
     
 #need to find a way to "keep" the list of wrong answers--maybe create a different list of wrong answers...push the letters that are correct to the display/screen function and the ones that are not correct to the wrong guess function, which is tied to a counter that stops at 8 
 
@@ -49,17 +51,27 @@ def display_letter(letter, guesses):
     else:
         return "_"
 
-    [display_letter(letter, current_guesses) for letter in word]
 
+def print_word(word, guesses):
+    output_letters = [display_letter(letter, guesses) 
+                      for letter in word]
+    print(" ".join(output_letters))
+    
 
 def main(file):
     """This function is where all the other functions will be executed"""
     opened_file = open(file)
     word_list = opened_file.read().split()
     level_selection = level_choice(word_list)
-    mystery_word = get_random_word(level_selection)
+    mystery_word = str(get_random_word(level_selection))
     letter = user_guess()
-    display_letter(letter,list_of_guesses)
+    list = list_of_guesses(letter)
+    display_letter(letter, list)
+    print_word(mystery_word,list)
+
+    # print_word(mystery_word, list_of_guesses)
+    
+    
 
 main('words.txt')
 
