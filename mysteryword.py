@@ -28,21 +28,38 @@ def level_choice(word_list):
     return new_word_list
 
 def user_guess():
-    """This function asks for the user's guess and then makes it a lowercase letter for more easy evaluation--I'm assuming "good" input by the user for now"""
-    list_of_guesses = []
+    """This function asks for the user's guess and then makes it a lowercase letter for more easy evaluation--I'm assuming "good" input by the user for now. After lowercasing, it is added to a list of guesses that is returned"""
+    # list_of_guesses = []
     user_input = input("Please guess a letter:  ")
     lower_letter = user_input.lower()
-    list_of_guesses.append(lower_letter)
-    return list_of_guesses
+    # list_of_guesses.append(lower_letter)
+    return lower_letter
+
+def list_of_guesses
+    
 #need to find a way to "keep" the list of wrong answers--maybe create a different list of wrong answers...push the letters that are correct to the display/screen function and the ones that are not correct to the wrong guess function, which is tied to a counter that stops at 8 
+
+def display_letter(letter, guesses):
+    """
+    Conditionally display a letter. If the letter is already in
+    the list `guesses`, then return it. Otherwise, return "_".
+    """
+    if letter in guesses:
+        return letter
+    else:
+        return "_"
+
+    [display_letter(letter, current_guesses) for letter in word]
+
 
 def main(file):
     """This function is where all the other functions will be executed"""
     opened_file = open(file)
     word_list = opened_file.read().split()
     level_selection = level_choice(word_list)
-    get_random_word(level_selection)
-    user_guess()
+    mystery_word = get_random_word(level_selection)
+    letter = user_guess()
+    display_letter(letter,list_of_guesses)
 
 main('words.txt')
 
