@@ -34,7 +34,7 @@ def user_guess():
     lower_letter = user_input.lower()
     list_of_guesses.append(lower_letter)
     return list_of_guesses
-
+#need to find a way to "keep" the list of wrong answers--maybe create a different list of wrong answers...push the letters that are correct to the display/screen function and the ones that are not correct to the wrong guess function, which is tied to a counter that stops at 8 
 
 def main(file):
     """This function is where all the other functions will be executed"""
