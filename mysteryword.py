@@ -1,9 +1,9 @@
 import random
 
 # random word function, exclude words that start with uppercase
-def get_random_word(new_word_list):
+def get_random_word(list):
     """ this function returns a random word from the word list given """
-    random_word = random.choice(new_word_list)
+    random_word = random.choice(list)
     random_lower_word = random_word.lower()
     print (random_lower_word)
     return random_lower_word
@@ -41,8 +41,8 @@ def user_input():
 def main(file):
     opened_file = open(file)
     word_list = opened_file.read().split()
-    what_level(word_list)
-    get_random_word(new_word_list)
+    level_selection = what_level(word_list)
+    get_random_word(level_selection)
     user_input()
 
 main('words.txt')
