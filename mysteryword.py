@@ -1,9 +1,9 @@
 import random
 
 # random word function, exclude words that start with uppercase
-def get_random_word(list):
+def get_random_word(new_word_list):
     """ this function returns a random word from the word list given """
-    random_word = random.choice(list)
+    random_word = random.choice(new_word_list)
     random_lower_word = random_word.lower()
     print (random_lower_word)
     return random_lower_word
@@ -30,7 +30,7 @@ def what_level(word_list):
             if len(word) <= 8:
                 new_word_list.append(word)
 
-    print(new_word_list)
+    return new_word_list
 #userinput function
 def user_input():
     user_input = input("Please guess a letter:  ")
@@ -42,7 +42,7 @@ def main(file):
     opened_file = open(file)
     word_list = opened_file.read().split()
     what_level(word_list)
-    # get_random_word()
+    get_random_word(new_word_list)
     user_input()
 
 main('words.txt')
@@ -53,7 +53,9 @@ main('words.txt')
 
 # ask user what level they would like to play
     #level conditions for random word selection?
+    #finished!
 # random word function
+    #finished! 
 # game starts by showing user how many characters are in the random word chosen
 # game alerts user that they have 8 guesses left
     #guess tracker/counter
