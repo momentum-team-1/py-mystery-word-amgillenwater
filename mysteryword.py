@@ -13,19 +13,24 @@ def what_level(word_list):
     Maybe this function needs to happen before the random function, too? narrow down the list to the lengths selected, then randomly pick a word?
     """
     desired_level = input("Please type one of the following to indicate the level of difficulty you'd like to play: Easy, Normal, Difficult  ")
+    new_word_list = []
     if desired_level.lower() == 'easy':
         for word in word_list:
-            if len(word) >= 4 and len(word)<= 6:
-                return word
+            if len(word) >= 4 and len(word) <= 6:
+                new_word_list.append(word)
+                
                 #need to figure out how to send this list to the random function, return it?
     if desired_level.lower() == 'normal':
         for word in word_list:
             if len(word) >= 6 and len(word) <= 8:
-                return word
+                new_word_list.append(word)
+              
     if desired_level.lower() == 'hard':
         for word in word_list:
             if len(word) <= 8:
-                return word
+                new_word_list.append(word)
+
+    print(new_word_list)
 #userinput function
 def user_input():
     user_input = input("Please guess a letter:  ")
@@ -37,7 +42,7 @@ def main(file):
     opened_file = open(file)
     word_list = opened_file.read().split()
     what_level(word_list)
-    get_random_word(word_list)
+    # get_random_word()
     user_input()
 
 main('words.txt')
