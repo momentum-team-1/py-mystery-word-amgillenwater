@@ -42,7 +42,6 @@ def display_letter(letter, guesses):
     Conditionally display a letter. If the letter is already in
     the list `guesses`, then return it. Otherwise, return "_".
     """
-    guessCount = 8
     if letter in guesses:
         return letter
     else:
@@ -52,6 +51,7 @@ def print_word(word, guesses):
     output_letters = [display_letter(letter, guesses) 
                       for letter in word]
     print(" ".join(output_letters))
+    return out
     
 def is_game_over(word, list):
     for letter in word:
@@ -71,7 +71,6 @@ def main(file):
     print_word(mystery_word,list)
 
     tries = 8
-
     while tries > 0:
         letter = user_guess()
         list = list_of_guesses(letter)
