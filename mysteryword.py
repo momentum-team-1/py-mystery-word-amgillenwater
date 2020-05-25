@@ -46,19 +46,13 @@ def display_letter(letter, guesses):
         return letter
     else:
         return "_"
-        
+
 def print_word(word, guesses):
     output_letters = [display_letter(letter, guesses) 
                       for letter in word]
     print(" ".join(output_letters))
-    return out
     
-def is_game_over(word, list):
-    for letter in word:
-        if letter not in list:
-            return False
-    return True
-
+    
 def main(file):
     """This function is where all the other functions will be executed"""
     opened_file = open(file)
@@ -69,15 +63,6 @@ def main(file):
     list = list_of_guesses(letter)
     display_letter(letter, list)
     print_word(mystery_word,list)
-
-    tries = 8
-    while tries > 0:
-        letter = user_guess()
-        list = list_of_guesses(letter)
-        display_letter(letter, list)
-        print_word(mystery_word,list)
-
-
 
     # print_word(mystery_word, list_of_guesses)
 
