@@ -28,21 +28,26 @@ def level_choice(word_list):
 
 def user_guess():
     """This function asks for the user's guess and then makes it a lowercase letter for more easy evaluation--I'm assuming "good" input by the user for now. After lowercasing, it is added to a list of guesses that is returned"""
-    user_input = input("Please guess a letter:  ")
-    lower_letter = user_input.lower()
-    return lower_letter  
+    letter = input("Please guess a letter:  ")
+    return letter.lower()
 
 def list_of_guesses(letter):
     list_of_guesses = []
     list_of_guesses.append(letter)
     return list_of_guesses
 
+def calculate_guesses_remaining(word, guesses):
+    wrong_guesses = [guess for guess in guesses if guess not in word]
+    return 8 - len(wrong_guesses)
+
+def guesses_remaining(word,guesses):
+    return calculate_guesses_remaining(word,guesses) > 0
+
 def display_letter(letter, guesses):
     """
     Conditionally display a letter. If the letter is already in
     the list `guesses`, then return it. Otherwise, return "_".
     """
-    guessCount = 8
     if letter in guesses:
         return letter
     else:
@@ -67,16 +72,18 @@ def main(file):
     mystery_word = str(get_random_word(level_selection))
     letter = user_guess()
     list = list_of_guesses(letter)
-    display_letter(letter, list)
-    print_word(mystery_word,list)
-
-    tries = 8
-
-    while tries > 0:
-        letter = user_guess()
-        list = list_of_guesses(letter)
+    list = []
+    
+    while guesses_remaining(mystery_word, list):
         display_letter(letter, list)
-        print_word(mystery_word,list)
+        # print_word(mystery_word, list)
+    # display_letter(letter, list)
+    # print_word(mystery_word,list)
+
+    
+
+
+
 
 
 
