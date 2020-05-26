@@ -31,10 +31,10 @@ def user_guess():
     letter = input("Please guess a letter:  ")
     return letter.lower()
 
-def list_of_guesses(letter):
-    list_of_guesses = []
-    list_of_guesses.append(letter)
-    return list_of_guesses
+# def list_of_guesses(letter):
+#     list_of_guesses = []
+#     list_of_guesses.append(letter)
+#     return list_of_guesses
 
 def calculate_guesses_remaining(word, guesses):
     wrong_guesses = [guess for guess in guesses if guess not in word]
@@ -71,15 +71,14 @@ def main(file):
     level_selection = level_choice(word_list)
     mystery_word = str(get_random_word(level_selection))
     letter = user_guess()
-    list = list_of_guesses(letter)
-    list = []
-    
-    while guesses_remaining(mystery_word, list):
-        display_letter(letter, list)
-        # print_word(mystery_word, list)
-    # display_letter(letter, list)
-    # print_word(mystery_word,list)
+    list_of_guesses = []
+    list_of_guesses.append(letter)
+    display_letter(letter, list_of_guesses)
 
+    while guesses_remaining(mystery_word, list_of_guesses):
+        print_word(mystery_word,list_of_guesses)
+        list_of_guesses.append(user_guess())
+    
     
 
 
